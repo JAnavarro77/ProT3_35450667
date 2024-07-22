@@ -7,7 +7,7 @@
    </div>
    <?php endif;?>
    <!-- inicia el formulario del login -->
-    <form method="post" action="<?php echo base_url('enviarlogin') ?>">
+    <form method="post" action="<?php echo base_url('/enviarlogin') ?>">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

@@ -2,8 +2,8 @@
 <h2>Contacto</h2>
 <h3>Puedes ponerte en contacto conmigo a través del siguiente formulario:</h3>
 
-<?php $validation = \config\Services::validation(); ?>
-<form metod="post" action="<?php echo base_url('/enviar-form') ?>">
+<?php $validation = \Config\Services::validation(); ?>
+<form method="post" action="<?php echo base_url('/enviar-form') ?>">
 <?=csrf_field();?>
 <?=csrf_field();?>
 <?php if(!empty (session()->getFlashdata('fail'))):?>
@@ -13,7 +13,7 @@
         <div class="alert alert-danger"><?=session()->getFlashdata('success');?></div>
         <?php endif?>
 <form>
-<p><input name= "nombre" class="text-uppercase" type="text" placeholder="nombre"> </p>
+<p><input name="nombre" class="text-uppercase" type="text" placeholder="nombre"> </p>
 <!-- error  -->
  <?php if($validation->getError('nombre')) {
     ?>
@@ -22,7 +22,7 @@
     </div>
     <?php }?>
     <!-- fin  error -->
-<p><input name= "apellido" class="text-uppercase"type="text" placeholder="apellido"></p>
+<p><input name="apellido" class="text-uppercase"type="text" placeholder="apellido"></p>
 <!-- error  -->
 <?php if($validation->getError('apellido')) {
     ?>
@@ -31,7 +31,7 @@
     </div>
     <?php }?>
     <!-- fin  error -->
-<p> <input name= "email" class="form-label"type="email" placeholder="email"></p>
+<p> <input name="email" class="form-label"type="email" placeholder="email"></p>
 <!-- error  -->
 <?php if($validation->getError('email')) {
     ?>
@@ -40,7 +40,7 @@
     </div>
     <?php }?>
     <!-- fin  error -->
-<p> <input name= "usuario" class="form-label"type="text" placeholder="usuario"></p>
+<p> <input name="usuario" class="form-label"type="text" placeholder="usuario"></p>
 <!-- error  -->
 <?php if($validation->getError('usuario')) {
     ?>
@@ -49,7 +49,7 @@
     </div>
     <?php }?>
     <!-- fin  error -->
-<p> <input name= "pass" class="form-label"type="text" placeholder="password"></p><!-- error  -->
+<p> <input name="pass" class="form-label"type="text" placeholder="password"></p><!-- error  -->
  <?php if($validation->getError('pass')) {
     ?>
     <div class='alert alet-danger mt-2'>

@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
-use Codeigniter\model;
+use CodeIgniter\Model;
 
-class usuario_model extends model 
+class usuario_model extends Model 
 {
     protected $table = 'usuarios';
     protected $primarykey = 'id_usuario';

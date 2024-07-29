@@ -3,15 +3,17 @@ namespace App\Controllers;
 use App\Models\usuario_model;
 use CodeIgniter\Controller;
 
-class usuario_controller extends Controller{
+class usuario_controller extends Controller
+{
 
     public function _construct()
     {
         helper(['form', 'url']);
     }
-    public function create() {
+    public function create() 
+    {
 
-        $dato['titulo']='Registro';
+        $dato['titulo']='registro';
     echo view ('front/head_view',$dato);
 	echo view ('front/navbar_view');
 	echo view ('back/usuario/registro');
@@ -28,14 +30,16 @@ class usuario_controller extends Controller{
         ],
     );
     $formModel = new usuario_model();
-    if (!$input) {
+    if (!$input) 
+    {
         $data['titulo']='Registro';
         echo view ('front/head_view',$data);
 	    echo view ('front/navbar_view');
 	    echo view ('back/usuario/registro', ['validation' => $this->validator]);
 	    echo view ('front/footer_view');
     }
-    else {
+    else 
+    {
         $formModel->save([
             'nombre' => $this->request->getVar('nombre'),
             'apellido' => $this->request->getVar('apellido'),
@@ -52,7 +56,7 @@ class usuario_controller extends Controller{
 
     }
 
-    
+
     }
     
 }

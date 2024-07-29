@@ -9,8 +9,8 @@
             width="75" height="30"></a>
             <a href="https://www.instagram.com/" class="social-icon"><img src="assets/img/insta.png" alt="instagram"alt="marca"
             width="75" height="30"></a>
-</ul>
-</div>
+            </ul>
+        </div>
 <p> Todos los derechos reservados &copy; 2023 |DYN  proyecto y construccion </p>
 </div>
 </footer>

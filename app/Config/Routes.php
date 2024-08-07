@@ -38,11 +38,11 @@ $routes->get('registro', 'Home::registro');
 $routes->get('login', 'Home::login');
 
 /*rutas del registro de usuarios */
-$routes->get('/registro','usuario_controller::create');
+$routes->get('/registro','Usuario_Controller::create');
 $routes->post('/enviar-form','Usuario_Controller::formValidation');
 /*
 /*rutas del login*/ 
-$routes->get('/login','login_controller');
+$routes->get('/login','Login_Controller::index');
 $routes->post('/enviarlogin','Login_Controller::auth');
 $routes->get('/panel','Panel_Controller::index',['filters' => 'auth']);
 $routes->get('/logout', 'Login_Controller::logout');

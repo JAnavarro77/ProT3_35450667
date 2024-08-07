@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use CodeIgniter\Controller;
 use App\Models\Usuario_Model;
 
@@ -21,9 +22,16 @@ class Login_Controller extends BaseController
     {
         $session = session();
         $model = new Usuario_Model();
+
         // Se traen los datos del formulario
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('pass');
+
+        // Validación de datos
+        if (!$email || !$password) {
+            $session->setFlashdata('msg', 'Por favor, ingrese su correo electrónico y contraseña');
+            return redirect()->to(base_url('login'));
+        }
 
         $data = $model->where('email', $email)->first();
         if ($data) {
@@ -31,7 +39,7 @@ class Login_Controller extends BaseController
             $baja = $data['baja'];
             if ($baja == 'SI') {
                 $session->setFlashdata('msg', 'Usuario dado de baja');
-                return redirect()->to('/Login_Controller');
+                return redirect()->to(base_url('login'));
             }
             // Se verifican los datos ingresados para iniciar sesión
             $verify_pass = password_verify($password, $pass);
@@ -49,15 +57,15 @@ class Login_Controller extends BaseController
                 $session->set($ses_data);
 
                 $session->setFlashdata('msg', '¡Bienvenido!');
-                return redirect()->to('/panel');
+                return redirect()->to(base_url('panel'));
             } else {
                 // No pasó la validación del password
-                $session->setFlashdata('msg', 'Password incorrecta');
-                return redirect()->to('/Login_Controller');
+                $session->setFlashdata('msg', 'Contraseña incorrecta');
+                return redirect()->to(base_url('login'));
             }
         } else {
-            $session->setFlashdata('msg', 'Email no registrado');
-            return redirect()->to('/Login_Controller');
+            $session->setFlashdata('msg', 'Correo electrónico no registrado');
+            return redirect()->to(base_url('login'));
         }
     }
 
@@ -65,6 +73,6 @@ class Login_Controller extends BaseController
     {
         $session = session();
         $session->destroy();
-        return redirect()->to('/ProT3_35450667/login');
+        return redirect()->to(base_url('login'));
     }
 }

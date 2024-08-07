@@ -60,19 +60,30 @@ nav
         }
     
 footer
-         {
-                background-color: hsl(185, 39%, 49%); 
-                color: hsl(333, 85%, 3%);
-                padding: 20px 0; 
-            }
-                .footer-content {
-                max-width: 400px; 
-                margin: 0 auto;
-                text-align: center; 
-            }
-        .class social-icons{
-            display:flex;
-            justify-content: center;
+     
+        
+        .footer-content {
+            background-color: #117c97;
+            color: #084457;
+            text-align: center;
+            padding: 20px 0;
         }
-
+        .footer-content .social-icons {
+            margin-bottom: 20px;
+        }
+        .footer-content .social-icons ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-content .social-icons ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .footer-content .social-icons ul li a img {
+            width: 75px;
+            height: 30px;
+        }
+        .footer-content p {
+            margin: 0;
+        }
         

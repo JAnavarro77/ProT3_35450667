@@ -4,13 +4,12 @@
 <?php $validation = \Config\Services::validation(); ?>
 <form method="post" action="<?php echo base_url('/enviar-form'); ?>">
 <?=csrf_field();?>
-<?=csrf_field();?>
-<?php if(!empty (session()->getFlashdata('fail'))):?>
+<?php if(!empty (session()->getFlashdata('fail'))):?> <!-- reemplace los : del video por ; porque me generaba error-->
     <div class="alert alert-danger"><?=session()->getFlashdata('fail');?></div>
-    <?php endif?>
-    <?php if(!empty (session()->getFlashdata('success'))):?>
+    <?php endif?> <!-- borre el endif porque me generaba error-->
+    <?php if(!empty (session()->getFlashdata('success'))):?> <!-- reemplace los : del video por ; porque me generaba error-->
         <div class="alert alert-danger"><?=session()->getFlashdata('success');?></div>
-        <?php endif?>
+        <?php endif?> <!-- borre el endif porque me generaba error-->
 <form>
 <div class="text" >Nombre</div>
 <p><input name="nombre" class="text-uppercase" type="text" placeholder="nombre"> </p>
@@ -66,7 +65,7 @@
 <p><textarea placeholder="Mensaje"></textarea></p>
 -->
 
-<p><input type="submit" value="Guardar" class="btn btn-success">
+<p><input type="submit" value="Enviar" class="btn btn-success">
 <input type="reset" value="Cancelar" class="btn btn-danger"></p>
 
 

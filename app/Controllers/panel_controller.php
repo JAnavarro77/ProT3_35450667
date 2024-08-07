@@ -15,7 +15,7 @@ class panel_controller extends Controller
 
         $dato['titulo']='panel del usuario';
         echo view('front/head_view',$dato);
-        echo view('front/navbar_view',$dato);
+        echo view('front/navbar_view');
         echo view('back/usuario/usuario_logueado',$data);
         echo view('front/footer_view');
 

@@ -39,13 +39,13 @@ $routes->get('login', 'Home::login');
 
 /*rutas del registro de usuarios */
 $routes->get('/registro','usuario_controller::create');
-$routes->post('/enviar-form','usuario_controller::formValidation');
+$routes->post('/enviar-form','Usuario_Controller::formValidation');
 /*
 /*rutas del login*/ 
 $routes->get('/login','login_controller');
-$routes->post('/enviarlogin','login_controller::auth');
-$routes->get('/panel','panel_controller::index',['Filters' => 'auth']);
-$routes->get('/logout', 'login_controller::logout');
+$routes->post('/enviarlogin','Login_Controller::auth');
+$routes->get('/panel','Panel_Controller::index',['filters' => 'auth']);
+$routes->get('/logout', 'Login_Controller::logout');
 /*
 
 /**

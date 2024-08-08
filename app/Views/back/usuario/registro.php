@@ -51,8 +51,13 @@
     </div>
     <?php }?>
     <!-- fin  error -->
-    <div class="text" >Password</div>
-<p> <input name="pass" class="form-label"type="password" placeholder="contraseña"></p><!-- error  -->
+    <div class="text">Password</div>
+        <div style="position: relative;">
+            <input name="pass" id="password" class="form-label" type="password" placeholder="Crea tu contraseña">
+            <span id="togglePassword" style="position: absolute; right: 10px; top: 8px; cursor: pointer;">
+                👁️
+            </span>
+        </div><!-- error  -->
  <?php if($validation->getError('pass')) {
     ?>
     <div class='alert alet-danger mt-2'>
@@ -71,3 +76,16 @@
 
 </form>
 </section>
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function (e) {
+        // Alternar el tipo de input entre "password" y "text"
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // Cambiar el ícono de ojo según el estado
+        this.textContent = type === 'password' ? '👁️' : '🙈';
+    });
+</script>

@@ -4,11 +4,11 @@
         <h2>INICIAR SESION</h2>
 
         <!-- mensaje de error -->
-        <?php if(session()->getFlashdata('msg')): ?>
-            <div class="alert alert-warning">
-                <?= session()->getFlashdata('msg') ?>
-            </div>
-        <?php endif; ?>
+        <?php if (session()->getFlashdata('success')): ?>
+    <div class="alert alert-success">
+        <?= session()->getFlashdata('success'); ?>
+    </div>
+<?php endif; ?>
 
         <form method="post" action="<?php echo base_url('/enviarlogin'); ?>">
             <div class="mb-2">

@@ -27,8 +27,14 @@ class Usuario_Controller extends Controller
             'apellido' => 'required|min_length[3]|max_length[25]',
             'usuario'  => 'required|min_length[3]',
             'email'    => 'required|min_length[4]|max_length[100]|valid_email|is_unique[usuarios.email]',
-            'pass'     => 'required|min_length[3]|max_length[10]'
-        ]);
+            'pass'     => 'required|min_length[3]|max_length[10]|regex_match[/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).+$/]'
+        ],
+        [
+            'pass' => [
+                'regex_match' => 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un símbolo.'
+            ]
+        ]
+    );
 
         $formModel = new Usuario_Model();
 
@@ -51,7 +57,7 @@ class Usuario_Controller extends Controller
             ]);
 
             session()->setFlashdata('success', 'Usuario registrado con éxito');
-            return redirect()->to('login'); // Redirige correctamente a la página de login
+            return redirect()->to(base_url('/login')); // Redirige correctamente a la página de login
         }
     }
 }
